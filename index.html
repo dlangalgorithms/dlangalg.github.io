@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Язык программирования D</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/d.min.js"></script>
+</head>
+<body>
+    <canvas id="neural-network"></canvas>
+    
+    <div class="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="menu-overlay">
+        <nav class="menu">
+            <a href="index.html" class="menu-item">Главная</a>
+            <a href="download.html" class="menu-item">Скачать</a>
+            <a href="https://dlang.org/spec/spec.html" class="menu-item">Документация</a>
+            <a href="https://github.com/dlangalgorithms" class="menu-item">Наш Github</a>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <img src="logo.png" alt="Логотип D" class="logo">
+                    <p class="hero-description">D — это язык программирования общего назначения со статической типизацией, доступом на системном уровне и синтаксисом, подобным C. С языком программирования D пишите быстро, читайте быстро и работайте быстро.</p>
+                </div>
+                <div class="hero-right">
+                    <h2>Пример кода</h2>
+                    <pre><code class="language-d">void main()
+{
+    import std.stdio, std.string, std.algorithm, std.conv;
+
+    // arr is real[] and sym is the current symbol
+    readln.split.fold!((arr, sym)
+    {
+        static foreach (c; "+-*/")
+            if (sym == [c])
+                // replace the last 2 elements with the binary op
+                return arr[0 .. $-2] ~
+                    mixin("arr[$-2] " ~ c ~ " arr[$-1]");
+
+        // sym must be a number
+        return arr ~ sym.to!real;
+    })((real[]).init).writeln;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>&copy; 2025 Язык программирования D</p>
+    </footer>
+
+    <script>hljs.highlightAll();</script>
+    <script src="neural-network.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html> 
